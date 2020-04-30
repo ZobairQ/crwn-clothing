@@ -1,4 +1,8 @@
 {
-    "editor.fontFamily": "'Ubuntu Mono',Consolas, 'Courier New', monospace"
-    "editor.fontSize": 16
+    "editor.fontFamily": "'Ubuntu Mono',Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+      },
+      "emmet.triggerExpansionOnTab": true
 }
