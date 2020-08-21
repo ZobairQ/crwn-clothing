@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import "./collection.item.styles.scss";
 import CustomButton from "../custom-button/CustomButton";
 import { connect } from "react-redux";
-import {addItem } from '../../redux/cart/cart-actions';
+// import {addItem } from '../../redux/cart/cart-actions';
+import {addItem} from '../../redux/cart/cart';
 
 export class CollectionItem extends Component {
   render() {
     const { item, addItem} = this.props;
-   const {id, name, price, imageUrl} = item;
+   const {name, price, imageUrl} = item;
     return (
       <div className="collection-item">
         <div
