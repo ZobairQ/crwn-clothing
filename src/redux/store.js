@@ -1,12 +1,10 @@
-import {createStore, applyMiddleware, compose} from 'redux';
-import logger from 'redux-logger';
-import rootReducer from './root-reducer';
-import { devToolsEnhancer } from "redux-devtools-extension";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import logger from "redux-logger";
+import rootReducer from "./root-reducer";
 
-
-
-const middlewares = [logger];
-
-const store  = createStore(rootReducer, compose(applyMiddleware(...middlewares), devToolsEnhancer({trace:true})))
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [...getDefaultMiddleware({ serializableCheck: false }), logger],
+});
 
 export default store;
