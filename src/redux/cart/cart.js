@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addItemToCart } from "./cart.utils";
+import { addItemToCart, removeItemFromCart } from "./cart.utils";
 import { createSelector } from "reselect";
 
 const slice = createSlice({
@@ -15,9 +15,14 @@ const slice = createSlice({
     addItem: (cart, action) => {
       cart.cartItems = addItemToCart(cart.cartItems, action.payload);
     },
-    removeItem:(cart,action) => {
-      cart.cartItems.filter(item => item.id !== action.playload);
-    }
+    removeItem: (cart, action) => {
+      cart.cartItems = cart.cartItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+    },
+    removeFromCart: (cart, action) => {
+      cart.cartItems = removeItemFromCart(cart.cartItems, action.payload);
+    },
   },
 });
 export const getHidden = createSelector(
@@ -30,11 +35,17 @@ export const getAcumulatedCartItems = createSelector(
 );
 export const getAcumulatedPrice = createSelector(
   (state) => state.cart.cartItems,
-  (cartItems) => cartItems.reduce((acc, cartItem) => acc + cartItem.price, 0)
+  (cartItems) =>
+    cartItems.reduce((acc, cartItem) => acc + cartItem.quantity * cartItem.price, 0)
 );
 export const getCartItems = createSelector(
   (state) => state.cart,
   (cart) => cart.cartItems
 );
-export const { toggleCartHidden, addItem, removeItem } = slice.actions;
+export const {
+  toggleCartHidden,
+  addItem,
+  removeItem,
+  removeFromCart,
+} = slice.actions;
 export default slice.reducer;
