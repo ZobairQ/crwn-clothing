@@ -24,9 +24,12 @@ export class CollectionItem extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  state
+})
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: item => dispatch(addItem(item))
 })
 
-export default connect(null, mapDispatchToProps) (CollectionItem);
+export default connect(mapStateToProps, mapDispatchToProps) (CollectionItem);

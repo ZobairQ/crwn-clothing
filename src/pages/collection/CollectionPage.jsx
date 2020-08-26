@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CollectionItem } from "../../components/collection-item/CollectionItem";
-import { createStructuredSelector } from "reselect";
+import  CollectionItem  from "../../components/collection-item/CollectionItem";
 import "./collection.page.styles.scss";
-import { getCollection, getCollections } from "../../redux/shop/shop";
+import { getCollection } from "../../redux/shop/shop";
 
 export class CollectionPage extends Component {
   render() {
@@ -13,7 +12,7 @@ export class CollectionPage extends Component {
         <h2 className="title">{title}</h2>
         <div className='items'>
           {
-            items.map(item=> <CollectionItem key={item.id} item={item}/>)
+            items.map(item=> <CollectionItem key={item.id} item={item}></CollectionItem>)
           }
         </div>
       </div>
