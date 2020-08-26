@@ -5,7 +5,7 @@ import { removeItem, addItem, removeFromCart } from "../../redux/cart/cart";
 
 export class CheckoutItem extends Component {
   render() {
-    const { id, item, removeItem, addItem, removeItemFromCart } = this.props;
+    const {item, removeItem, addItem, removeItemFromCart } = this.props;
     return (
       <div className="checkout-item">
         <div className="image-container">

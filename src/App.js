@@ -41,19 +41,14 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
+          <Route exact path="/" component={Homepage}/>
+          <Route exact path="/checkout" component={CheckoutPage}/>
+          <Route path="/shop" component={ShopPage}/>
 
-          <Route exact path="/checkout">
-            <CheckoutPage></CheckoutPage>
-          </Route>
-          <Route path="/shop">
-            <ShopPage />
-          </Route>
           <Route exact path="/signin">
             {this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />}
           </Route>
+          
           <Route path="/shop/hats"></Route>
           <Route path="/shop/jackets"></Route>
           <Route path="shop/sneakers"></Route>
